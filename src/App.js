@@ -8,7 +8,7 @@ import Login from './components/Login';
 import Signup from './components/Signup';
 // import App.css
 import "./App.css"
-import "./SVG_FILE/home_back"
+// import "./SVG_FILE/home_back"
 
 class app extends Component {
   render() {
