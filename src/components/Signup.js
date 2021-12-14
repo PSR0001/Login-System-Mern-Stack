@@ -29,13 +29,14 @@ export default function Signup() {
                 name, email, phone, work, password, cpassword
             })
         })
+        
         const data = await response.json()
 
         if (data.status === 422 || !data) {
-            window.alert('Invail Registration')
+            window.alert(data.message)
         }
         else{
-            window.alert("Registration Successfill")
+            window.alert(data.message)
             history.push("/login")
         }
     }
@@ -44,6 +45,7 @@ export default function Signup() {
     return (
         <>
             <div className="container">
+                <form method="POST">
                 <div className="mb-3 my-3">
                     <label htmlFor="Name" className="form-label">Name</label>
                     <input type="text" name="name" className="form-control" id="userName" value={users.name} onChange={handelUserData} placeholder="Enter Your Name Here" />
@@ -73,6 +75,7 @@ export default function Signup() {
                         <button onClick={postUserData}  className="btn btn-primary my-3">Submit</button>
                  </div>
                </div>
+               </form>
                </div>
                 </>
  )
