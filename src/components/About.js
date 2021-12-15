@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useEffect} from 'react'
 import {useHistory} from 'react-router-dom'
 
 const About = () => {
@@ -7,20 +7,23 @@ const About = () => {
     const callAboutPage = async ()=>{
         try{
             const response = await fetch('/about', {
-                method: "GET",
+                method: "POST",
+                mode:"cors",
                 headers: {
                     Accept: "application/json",
                     "Content-Type": "application/json"
                 },
-                credentials:"include"
+                credentials:"include",
+                
             })
             const data = await response.json();
             console.log('login page data' + data)
            
 
-            if (!data.status ===200) {
-                const error = new Error(response.error);
-                throw error;
+            if (data.status ===401 || !data) {
+                // const error = new Error('Please Log In!');
+                // throw error;
+                window.alert('Please Log In!')
             }
 
         }
@@ -32,8 +35,10 @@ const About = () => {
 
     // callAboutPage();
 
- 
+    useEffect(() => {
         callAboutPage();
+    }, [])
+        
   
 
     return (

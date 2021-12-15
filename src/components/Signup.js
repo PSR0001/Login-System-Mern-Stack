@@ -34,10 +34,10 @@ export default function Signup() {
 
         if (data.status === 422 || !data) {
             window.alert(data.message)
+            history.push("/login")
         }
         else{
             window.alert(data.message)
-            history.push("/login")
         }
     }
 
