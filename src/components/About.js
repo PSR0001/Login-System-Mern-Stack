@@ -16,14 +16,12 @@ const About = () => {
                 credentials:"include",
                 
             })
-            const data = await response.json();
-            console.log('login page data' + data)
            
-
-            if (data.status ===401 || !data) {
-                // const error = new Error('Please Log In!');
-                // throw error;
+            const data = await response.json();
+            console.log(data.status)
+            if (data.status === 401 || !data) {
                 window.alert('Please Log In!')
+                history.push("/login")
             }
 
         }
@@ -37,7 +35,8 @@ const About = () => {
 
     useEffect(() => {
         callAboutPage();
-    }, [])
+        console.log('hi i am useeffect hook')
+    })
         
   
 
