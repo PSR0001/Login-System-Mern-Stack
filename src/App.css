@@ -241,7 +241,7 @@ header .logo {
   height: auto;
 }
 
-.overlay {
+.overlay2 {
   position: absolute;
   bottom: 100%;
   left: 0;
@@ -253,12 +253,12 @@ header .logo {
   transition: 1s ease;
 }
 
-.container123:hover .overlay {
+.container123:hover .overlay2 {
   bottom: 0;
   height: 100%;
 }
 
-.text {
+.text2 {
   color: rgb(255, 255, 255);
   font-size: 20px;
   position: absolute;

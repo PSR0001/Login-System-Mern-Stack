@@ -75,8 +75,8 @@ const Contact = () => {
             <div className="col-lg-6 mb-5 mb-lg-0 visibility1 container123">
               <img src={img} className="w-100 image"
                 alt="img" />
-              <div className="overlay">
-                <div className="text">
+              <div className="overlay2">
+                <div className="text2">
                <p> Hello, I am Partha Singha Roy. I have rich interest in Web Development, Electronics, IoT. Born in Nadia, West Bengal. It has been a long journey till here. I hope this website will interest you in my life.</p>
                 </div>
 
