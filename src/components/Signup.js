@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react'
-import { useHistory} from 'react-router-dom'
+import { NavLink, useHistory } from 'react-router-dom'
 import Navbar from './Navbar';
 
 export default function Signup() {
@@ -14,30 +14,30 @@ export default function Signup() {
         name = e.target.name
         value = e.target.value
         setUsers({ ...users, [name]: value })
-     
+
     }
     //post  data
-    const postUserData = async (e)=>{
+    const postUserData = async (e) => {
         e.preventDefault()
 
         let { name, email, phone, work, password, cpassword } = users;
-        const response = await fetch("/register",{
+        const response = await fetch("/register", {
             method: "POST",
-            headers:{
-            "Content-Type":"application/json"
+            headers: {
+                "Content-Type": "application/json"
             },
-            body:JSON.stringify({
+            body: JSON.stringify({
                 name, email, phone, work, password, cpassword
             })
         })
-        
+
         const data = await response.json()
 
         if (data.status === 422 || !data) {
             window.alert(data.message)
             history.push("/login")
         }
-        else{
+        else {
             window.alert(data.message)
         }
     }
@@ -45,40 +45,71 @@ export default function Signup() {
 
     return (
         <>
-        <Navbar />
-            <div className="container">
-                <form method="POST">
-                <div className="mb-3 my-3">
-                    <label htmlFor="Name" className="form-label">Name</label>
-                    <input type="text" name="name" className="form-control" id="userName" value={users.name} onChange={handelUserData} placeholder="Enter Your Name Here" />
-                </div>
-                <div className="mb-3 my-3">
-                    <label htmlFor="Email" className="form-label">Email address</label>
-                    <input type="email" name="email" className="form-control" id="userEmail" value={users.email} onChange={handelUserData} placeholder="Enter Your Email " />
-                </div>
-                <div className="mb-3 my-3">
-                    <label htmlFor="Phone" className="form-label">Phone</label>
-                    <input type="text" name="phone" className="form-control" id="userPhone" value={users.phone} onChange={handelUserData} placeholder="Enter Your Phone Number " />
-                </div>
-                <div className="mb-3 my-3">
-                    <label htmlFor="Work" className="form-label">Work</label>
-                    <input type="text" name="work" className="form-control" id="userWork" value={users.work} onChange={handelUserData} placeholder="Enter Your Work Hare" />
-                </div>
-                <div className="mb-3 row">
-                    <label htmlFor="inputPassword" className="col-sm-2 col-form-label">Password</label>
-                    <div className="col-sm-10">
-                        <input type="password" name="password" className="form-control" id="inputPassword1" value={users.password} onChange={handelUserData} />
-                    </div>
-                    <div className="mb-3 row">
-                        <label htmlFor="inputPassword" className="col-sm-2 col-form-label">Confirm Password</label>
-                        <div className="col-sm-10">
-                            <input type="password" name="cpassword" className="form-control" id="inputPassword" value={users.cpassword} onChange={handelUserData}/>
+            <Navbar />
+
+            <section className="vh-100 bg-image gradient-custom-4 ">
+                <div className="mask d-flex align-items-center h-100 ">
+                    <div className="container h-100 ">
+                        <div className="row d-flex justify-content-center align-items-center h-100">
+                            <div className="col-12 col-md-9 col-lg-7 col-xl-6">
+                                <div className="card my-5 shadow-lg" >
+                                    <div className="card-body p-5">
+                                        <h2 className="text-uppercase text-center mb-5">Create an account</h2>
+
+                                        <form>
+
+                                            <div className="form-outline mb-4">
+                                                <input name="name" value={users.name} onChange={handelUserData} type="text" id="name" className="form-control " />
+                                                <label className="form-label" htmlFor="form3Example1cg">Your Name</label>
+                                            </div>
+
+                                            <div className="form-outline mb-4">
+                                                <input value={users.email} onChange={handelUserData} name="email" type="email" id="email" className="form-control " />
+                                                <label className="form-label" htmlFor="form3Example3cg">Your Email</label>
+                                            </div>
+                                            <div className="form-outline mb-4">
+                                                <input name="phone" value={users.phone} onChange={handelUserData}  type="text" id="number" className="form-control " />
+                                                <label className="form-label" htmlFor="form3Example3cg">Your Number</label>
+                                            </div>
+                                            <div className="form-outline mb-4">
+                                                <input name="work" value={users.work} onChange={handelUserData}  type="text" id="work" className="form-control " />
+                                                <label  className="form-label" htmlFor="form3Example3cg">Work</label>
+                                            </div>
+
+                                            <div className="form-outline mb-4">
+                                                <input value={users.password} onChange={handelUserData} name="password" type="password" id="password" className="form-control " />
+                                                <label className="form-label" htmlFor="form3Example4cg">Password</label>
+                                            </div>
+
+                                            <div className="form-outline mb-4">
+                                                <input name="cpassword" value={users.cpassword} onChange={handelUserData}  type="password" id="cpassword123" className="form-control " />
+                                                <label className="form-label" htmlFor="form3Example4cdg">Repeat your password</label>
+                                            </div>
+
+                                            <div className="form-check d-flex justify-content-center mb-5">
+                                                {/* <input className="form-check-input me-2" type="checkbox" value="" id="form2Example3cg" /> */}
+                                                <label className="form-check-label" htmlFor="form2Example3g">
+                                                    I agree all statements in <NavLink to="/Terms" className="text-body"><u>Terms of service</u></NavLink>
+                                                </label>
+                                            </div>
+
+                                            <div className="d-flex justify-content-center">
+                                                <button onClick={postUserData} type="button"
+                                                    className="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Register</button>
+                                            </div>
+
+                                            <p className="text-center text-muted mt-5 mb-0">Have already an account? 
+                                               <NavLink to='/Login'  className="fw-bold text-body"><u>Login here</u></NavLink></p>
+
+                                        </form>
+
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <button onClick={postUserData}  className="btn btn-primary my-3">Submit</button>
-                 </div>
-               </div>
-               </form>
-               </div>
-                </>
- )
+                    </div>
+                </div>
+            </section>
+        </>
+    )
 }

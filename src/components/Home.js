@@ -5,29 +5,27 @@ import 'bootstrap/dist/css/bootstrap.css';
 import { NavLink } from "react-router-dom"
 const Home = () => {
 
-function toggle(){
-  const menuToggle = document.querySelector('.toggle');
-  const showcase = document.querySelector('.showcase');
-  
- 
+  function toggle() {
+    const menuToggle = document.querySelector('.toggle');
+    const showcase = document.querySelector('.showcase');
+
+
     menuToggle.classList.toggle('active');
     showcase.classList.toggle('active');
-  
 
-}
+
+  }
 
 
   return (
     <div>
-      <>
+  
         <section className="showcase">
           <header>
             <h2 className="logo">Travel</h2>
             <div onClick={toggle} className="toggle"></div>
           </header>
-          {/* <video src={video} muted loop autoplay></video> */}
-
-          <video  muted loop autoPlay >
+          <video muted loop autoPlay >
             <source src={video} type="video/mp4" />
           </video>
 
@@ -42,36 +40,22 @@ function toggle(){
             <a href="/">Explore</a>
           </div>
           <ul className="social">
-            <li><a href="/"><img src="https://i.ibb.co/x7P24fL/facebook.png" alt="logo"/></a></li>
-            <li><a href="/"><img src="https://i.ibb.co/Wnxq2Nq/twitter.png" alt="logo"/></a></li>
-            <li><a href="/"><img src="https://i.ibb.co/ySwtH4B/instagram.png" alt="logo"/></a></li>
+            <li><a href="/"><img src="https://i.ibb.co/x7P24fL/facebook.png" alt="logo" /></a></li>
+            <li><a href="/"><img src="https://i.ibb.co/Wnxq2Nq/twitter.png" alt="logo" /></a></li>
+            <li><a href="/"><img src="https://i.ibb.co/ySwtH4B/instagram.png" alt="logo" /></a></li>
           </ul>
         </section>
         <div className="menu">
           <ul>
-          <li className="nav-item active">
-                <NavLink className="nav-link" to="/">Home <span className="sr-only">(current)</span></NavLink>
-              </li>
-              <li className="nav-item">
-                <NavLink className="nav-link" to="/about">About</NavLink>
-              </li>
-              <li className="nav-item">
-                <NavLink className="nav-link" to="/contact">Contact</NavLink>
-              </li>
-              <li className="nav-item">
-                <NavLink className="nav-link" to="/login">Login</NavLink>
-              </li>
-              <li className="nav-item">
-                <NavLink className="nav-link" to="/signup">Registration</NavLink>
-              </li>
+            <li ><NavLink to="/">Home </NavLink></li>
+            <li ><NavLink to="/about">About</NavLink></li>
+            <li ><NavLink to="/contact">Contact</NavLink></li>
+            <li ><NavLink to="/login">Login</NavLink></li>
+            <li ><NavLink to="/signup">Registration</NavLink></li>
           </ul>
         </div>
 
-        
-
-
-
-      </>
+  
     </div>
   )
 }
