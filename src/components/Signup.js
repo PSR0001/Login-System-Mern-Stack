@@ -1,6 +1,7 @@
 
 import React, { useState } from 'react'
 import { useHistory} from 'react-router-dom'
+import Navbar from './Navbar';
 
 export default function Signup() {
     const history = useHistory();
@@ -44,6 +45,7 @@ export default function Signup() {
 
     return (
         <>
+        <Navbar />
             <div className="container">
                 <form method="POST">
                 <div className="mb-3 my-3">

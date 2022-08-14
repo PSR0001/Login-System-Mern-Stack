@@ -1,5 +1,6 @@
 import React,{useEffect} from 'react'
 import {useHistory} from 'react-router-dom'
+import Navbar from './Navbar';
 
 const About = () => {
     const history = useHistory();
@@ -42,6 +43,7 @@ const About = () => {
 
     return (
         <div>
+            <Navbar />
             <p>Welcome</p>
             <div>Welcome to Kgec About page</div>
         </div>
