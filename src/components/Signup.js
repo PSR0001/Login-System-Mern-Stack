@@ -52,7 +52,7 @@ export default function Signup() {
                     <div className="container h-100 ">
                         <div className="row d-flex justify-content-center align-items-center h-100">
                             <div className="col-12 col-md-9 col-lg-7 col-xl-6">
-                                <div className="card my-5 shadow-lg" >
+                                <div className="card my-5 shadow-container" >
                                     <div className="card-body p-5">
                                         <h2 className="text-uppercase text-center mb-5">Create an account</h2>
 

@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { NavLink, useHistory } from 'react-router-dom'
 import Navbar from './Navbar';
+import logo from '../img/Mern-stack.png'
 
 export default function Login() {
 	const history = useHistory();
@@ -44,14 +45,14 @@ export default function Login() {
 				<div className="container py-5 h-100">
 					<div className="row d-flex justify-content-center align-items-center h-100">
 						<div className="col-xl-10">
-							<div className="card rounded-3 text-black shadow-lg">
+							<div className="card rounded-3 border-radius text-black shadow-container">
 								<div className="row g-0">
 									<div className="col-lg-6">
 										<div className="card-body p-md-5 mx-md-4">
 
 											<div className="text-center">
-												<img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/lotus.webp"
-													alt="logo" height={100} width={100} />
+												<img src={logo}
+													alt="logo" height={80} width={200} />
 												<h4 className="mt-1 mb-5 pb-1">I am a MERN Developer</h4>
 											</div>
 

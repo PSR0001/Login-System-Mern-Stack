@@ -17,7 +17,7 @@ const Contact = () => {
         <div className="container py-4 ">
           <div className="row g-0 align-items-center visibility2">
             <div className="col-lg-6 mb-5 mb-lg-0">
-              <div className="card cascading-right op shadow-lg" >
+              <div className="card cascading-right op shadow-container" >
                 <div className="card-body p-5 shadow-5 text-center">
                   <h2 className="fw-bold mb-5">Contact Me</h2>
                   <form>
